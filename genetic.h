@@ -5,3 +5,7 @@
 #define GENETIC_H
 
 
+Visites liste_visites_aleatoire(Visites V);
+
+
+#endif

@@ -1,5 +1,7 @@
 #ifndef MOTEUR_H
 #define MOTEUR_H
+
+
 typedef struct {
     int x;
     int y;
@@ -8,7 +10,7 @@ typedef struct {
 
 typedef struct{
     int *lst_villes;
-    int taille;
+    int longueur;
 } Visites;
 
 int longueur(Ville a , Ville b);
