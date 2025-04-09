@@ -1,3 +1,7 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+
 #ifndef MOTEUR_H
 #define MOTEUR_H
 
@@ -14,5 +18,6 @@ typedef struct{
 } Visites;
 
 int longueur(Ville a , Ville b);
+Visites *text_to_struct(FILE *f);
 
 #endif
