@@ -9,10 +9,9 @@ int main(void) {
         return EXIT_FAILURE;
     }
     
-    // Compte le nombre exact de villes
     int nb_villes = compter_villes(f);
     
-    // Initialise la structure avec le nombre exact de villes
+    // Initialise la structure avec nb_villes
     Visite *V = initVisite(nb_villes);
     if (V == NULL) {
         fclose(f);
