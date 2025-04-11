@@ -1,10 +1,9 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include"fichier.h"
 
-int compte_ligne(FILE *f){
+int compte_ligne(){
     int res; 
     char c;
+    FILE *f= fopen("ville.txt", "r");
     while((c=fgetc(f))!=EOF){
         if(c =='\n'){
             res++;
@@ -14,7 +13,6 @@ int compte_ligne(FILE *f){
 }
 
 // int main (){
-//     FILE *f= fopen("ville.txt", "r");
 //     printf("%d\n", compte_ligne(f));
 //     return 0;
 // }
