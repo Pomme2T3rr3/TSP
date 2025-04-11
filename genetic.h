@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdlib.h>
 #include "moteur.h"
 
@@ -5,7 +6,7 @@
 #define GENETIC_H
 
 
-Visites liste_visites_aleatoire(Visites V);
+Visite liste_visites_aleatoire(Visite V);
 
 
 #endif

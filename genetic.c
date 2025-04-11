@@ -3,19 +3,25 @@
 
 
 
-Visites liste_visites_aleatoire(Visites V) {
+Visite *liste_visites_aleatoire(Visite *V) {
     int i, j, tmp;
-    Visites V2;
-    V2.longueur = V.longueur;
-    V2.lst_villes = malloc(V.longueur * sizeof(int));
-    for (i = 0; i < V.longueur; i++) {
-        V2.lst_villes[i] = V.lst_villes[i];
+    Visite *V2;
+    
+    V2 = (Visite *)malloc(sizeof(Visite));
+    if(!V2) {
+        return NULL;
     }
-    for (i = 0; i < V.longueur; i++) {
-        j = rand() % V.longueur;
-        tmp = V2.lst_villes[i];
-        V2.lst_villes[i] = V2.lst_villes[j];
-        V2.lst_villes[j] = tmp;
+
+    V2->nb_villes = V->nb_villes;
+
+    V2->villes = (Ville *)malloc(V->nb_villes * sizeof(Ville));
+    if(!V2->villes) {
+        free(V2);
+        return NULL;
     }
+
+    for(
+
+
     return V2;
 }
