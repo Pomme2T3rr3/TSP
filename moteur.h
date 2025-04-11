@@ -1,30 +1,28 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<math.h>
-#include "fichier.h"
-
-#define TAILLE_LST_VILLES 100
 
 #ifndef MOTEUR_H
 #define MOTEUR_H
 
-
 typedef struct {
     int x;
     int y;
-    char nom;
+    char nom[50];  // Changed from char *nom[50] to fixed array
 } Ville;
 
-typedef struct{
-    int lst_villes[TAILLE_LST_VILLES];
+typedef struct {
+    int nb_villes;
+    Ville *villes;  // Pointer to array that will be allocated with exact size
     int longueur;
-} Visites;
+} Visite;
 
+// Compte le nombre de villes dans le fichier
+int compter_villes(FILE *f);
+Visite* initVisite(int nb_villes);
+int ajouterVille(Visite *v, Ville ville);
+void libererVisite(Visite *v);
 
-Visites *text_to_struct(FILE *f);
-
-double longueur(Ville a , Ville b);
-
-
+double longueur(Ville a, Ville b);
 
 #endif

@@ -1,41 +1,36 @@
-#include"fichier.h"
+#include "fichier.h"
+#include <string.h>
 
+Visite *text_to_struct(FILE *f) {
+    // Compte d'abord le nombre exact de villes
+    int nb_villes = compter_villes(f);
+    if (nb_villes <= 0) {
+        return NULL;
+    }
 
-Visites *text_to_struct(FILE *f){
-    int i = 0;
-    char c;
-    Ville *villes = malloc(sizeof(Ville) * TAILLE_LST_VILLES);
-    Visites *V = malloc(sizeof(Visites));
-    V->lst_villes = villes;
-    V->longueur = TAILLE_LST_VILLES;
+    // Initialise la structure avec le nombre exact de villes
+    Visite *V = initVisite(nb_villes);
+    if (V == NULL) {
+        return NULL;
+    }
 
-    while((c=fgetc(f))!=EOF){
-        if(c =='\n'){
-            i++;
-        }else{
-            villes[i].nom = c;
-            villes[i].x = fgetc(f);
-            villes[i].y = fgetc(f);
+    // Retourne au début du fichier
+    rewind(f);
+
+    char ligne[256];
+    int index = 0;
+    
+    while (fgets(ligne, sizeof(ligne), f) && index < nb_villes) {
+        if (strlen(ligne) <= 1) continue;
+        
+        Ville ville;
+        if (sscanf(ligne, "%d %d %49s", &ville.x, &ville.y, ville.nom) == 3) {
+            V->villes[index] = ville;
+            index++;
         }
     }
+
+    V->nb_villes = index;
     return V;
-} 
-
-
-int compte_ligne(){
-    int res; 
-    char c;
-    FILE *f= fopen("ville.txt", "r");
-    while((c=fgetc(f))!=EOF){
-        if(c =='\n'){
-            res++;
-        }
-    }
-    return res;
 }
-
-// int main (){
-//     printf("%d\n", compte_ligne(f));
-//     return 0;
-// }
 

@@ -3,24 +3,26 @@
 
 
 int main(void) {
-    //test de la fonction liste_visites_aleatoire
-    Visites V;
     FILE *f = fopen("ville.txt", "r");
     if (f == NULL) {
         perror("Erreur d'ouverture du fichier");
         return EXIT_FAILURE;
     }
     
-    V = *text_to_struct(f);
-    fclose(f);
+    // Compte le nombre exact de villes
+    int nb_villes = compter_villes(f);
     
-    // Affichage des villes
-    for (int i = 0; i < V.longueur; i++) {
-        printf("Ville %c : (%d, %d)\n", V.lst_villes[i].nom, V.lst_villes[i].x, V.lst_villes[i].y);
+    // Initialise la structure avec le nombre exact de villes
+    Visite *V = initVisite(nb_villes);
+    if (V == NULL) {
+        fclose(f);
+        return EXIT_FAILURE;
     }
     
-    free(V.lst_villes);
+    printf("Nombre de villes : %d\n", nb_villes);
+
     
+    fclose(f);
+    libererVisite(V);
     return 0;
-    
 }
