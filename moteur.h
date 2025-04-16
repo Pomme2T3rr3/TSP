@@ -22,7 +22,7 @@ int compter_villes(FILE *f);
 Visite* initVisite(int nb_villes);
 int ajouterVille(Visite *v, Ville ville);
 void libererVisite(Visite *v);
-
+double distance_total(Visite v);
 double longueur(Ville a, Ville b);
 
 #endif
