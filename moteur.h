@@ -8,12 +8,12 @@
 typedef struct {
     int x;
     int y;
-    char nom[50];  // Changed from char *nom[50] to fixed array
+    char nom[50];
 } Ville;
 
 typedef struct {
     int nb_villes;
-    Ville *villes;  // Pointer to array that will be allocated with exact size
+    Ville *villes;
     int longueur;
 } Visite;
 

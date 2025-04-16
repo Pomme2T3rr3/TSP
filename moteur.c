@@ -48,3 +48,19 @@ void libererVisite(Visite *v) {
         free(v);
     }
 }
+
+
+int ajouterVille(Visite *v, Ville ville) {
+    if (v == NULL || v->nb_villes <= 0) {
+        return 0;
+    }
+    
+    for (int i = 0; i < v->nb_villes; i++) {
+        if (v->villes[i].nom[0] == '\0') {
+            v->villes[i] = ville;
+            return 1;
+        }
+    }
+    
+    return 0;
+}

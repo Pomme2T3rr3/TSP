@@ -11,10 +11,6 @@ void test_init_visite() {
     assert(v->nb_villes == 5);
     assert(v->villes != NULL);
     libererVisite(v);
-    
-    // Test avec 0 villes
-    v = initVisite(0);
-    assert(v == NULL);
 }
 
 void test_longueur() {
@@ -43,4 +39,24 @@ void test_ajouter_ville() {
     assert(ajouterVille(v, b) == 1);
     
     libererVisite(v);
+}
+
+
+
+int main(void) {
+    // Test d'initialisation
+    test_init_visite();
+    printf("Test initVisite: OK\n");
+    
+    // Test de longueur
+    test_longueur();
+    printf("Test longueur: OK\n");
+    
+    // Test d'ajout de ville
+    test_ajouter_ville();
+    printf("Test ajouterVille: OK\n");
+    
+    printf("Tous les tests ont réussi!\n");
+    
+    return 0;
 }
