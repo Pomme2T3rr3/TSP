@@ -3,7 +3,7 @@ CFLAGS=-Wall -Wextra -g
 LDFLAGS=-lm
 
 # Fichiers sources principaux
-SRCS=main.c moteur.c fichier.c genetic.c
+SRCS=main.c moteur.c fichier.c genetic.c affichage.c
 OBJS=$(SRCS:.c=.o)
 TARGET=tsp
 

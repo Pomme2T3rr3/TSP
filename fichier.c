@@ -24,7 +24,7 @@ Visite *text_to_struct(FILE *f) {
         if (strlen(ligne) <= 1) continue;
         
         Ville ville;
-        if (sscanf(ligne, "%d %d %49s", &ville.x, &ville.y, ville.nom) == 3) {
+        if (sscanf(ligne, "%49s %d %d", ville.nom, &ville.x, &ville.y) == 3) {
             V->villes[index] = ville;
             index++;
         }

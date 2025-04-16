@@ -42,6 +42,22 @@ void test_ajouter_ville() {
 }
 
 
+void test_distance_total() {
+    Visite *v = initVisite(3);
+    Ville a = {0, 0, "A"};
+    Ville b = {3, 4, "B"};
+    Ville c = {6, 8, "C"};
+    
+    ajouterVille(v, a);
+    ajouterVille(v, b);
+    ajouterVille(v, c);
+    
+    double dist = distance_total(*v);
+    assert(fabs(dist - 10.0) < 0.0001);
+    
+    libererVisite(v);
+}
+
 
 int main(void) {
     // Test d'initialisation
@@ -56,6 +72,10 @@ int main(void) {
     test_ajouter_ville();
     printf("Test ajouterVille: OK\n");
     
+    // Test de distance totale
+    test_distance_total();
+    printf("Test distance_total: OK\n");
+
     printf("Tous les tests ont réussi!\n");
     
     return 0;

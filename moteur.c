@@ -13,7 +13,7 @@ double distance_total(Visite v){
     for (int i = 0; i < v.nb_villes - 1; i++) {
         total += longueur(v.villes[i], v.villes[i + 1]);
     }
-    // Add distance from last city to first city
+
     total += longueur(v.villes[v.nb_villes - 1], v.villes[0]);
     return total;
 }
