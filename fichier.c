@@ -33,4 +33,3 @@ Visite *text_to_struct(FILE *f) {
     V->nb_villes = index;
     return V;
 }
-
