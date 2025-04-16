@@ -18,3 +18,11 @@ void afficherVisiteFichier(Visite v, FILE *f) {
     }
     fprintf(f, "Longueur totale : %.2f\n", distance_total(v));
 }
+
+
+void afficherListeVisites(Visite **liste_visites, int k) {
+    for (int i = 0; i < k; i++) {
+        printf("Visite %d :\n", i + 1);
+        afficherVisite(*liste_visites[i]);
+    }
+}

@@ -2,6 +2,7 @@
 #include "fichier.h"
 #include "affichage.h"
 #include <time.h>
+#define NB_VISITES 128
 // #include "test_moteur.c" // Removed to avoid redefinition of 'main'
 
 
@@ -18,11 +19,17 @@ int main(void) {
     afficherVisite(*v);
 
     // Créer une visite aléatoire
-    Visite* visite_aleatoire = liste_visites_aleatoire(*v);
+    Visite* visite = visite_aleatoire(*v);
 
     // Afficher la visite aléatoire
     printf("\nVisite aléatoire :\n");
-    afficherVisite(*visite_aleatoire);
+    afficherVisite(*visite);
+
+    // création liste visites
+    Visite **liste_visites = generer_liste_visites(*v, NB_VISITES);
+    afficherListeVisites(liste_visites, NB_VISITES);
+    trier_liste_visites(liste_visites, NB_VISITES);
+    afficherListeVisites(liste_visites, NB_VISITES);
 
     // Libérer la mémoire
     libererVisite(v);
