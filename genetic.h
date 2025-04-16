@@ -6,7 +6,7 @@
 #define GENETIC_H
 
 
-Visite liste_visites_aleatoire(Visite V);
+Visite* liste_visites_aleatoire(Visite V);
 
 
 #endif

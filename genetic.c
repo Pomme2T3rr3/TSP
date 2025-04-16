@@ -1,9 +1,7 @@
 #include "genetic.h"
 
 
-
-
-Visite liste_visites_aleatoire(Visite V) {
+Visite* liste_visites_aleatoire(Visite V) {
     Visite *visite_aleatoire = initVisite(V.nb_villes);
     if (visite_aleatoire == NULL) {
         exit(EXIT_FAILURE);
@@ -35,7 +33,7 @@ Visite liste_visites_aleatoire(Visite V) {
     }
 
     free(indices);
-    Visite result = *visite_aleatoire;
-    libererVisite(visite_aleatoire);
-    return result;
+    
+    // Simplement retourner le pointeur sans le libérer
+    return visite_aleatoire;
 }
